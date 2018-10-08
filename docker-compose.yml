@@ -1,0 +1,23 @@
+version: '3'
+services:
+  server:
+    container_name: server
+    restart: always
+    build: ./server
+    ports:
+      - '8080:3000'
+    depends_on:
+      - mongo
+  mongo:
+    container_name: mongo
+    image: mongo
+    ports:
+      - '27017:27017'
+  app:
+    container_name: app
+    restart: always
+    build: ./app
+    ports:
+      - '80:80'
+    depends_on:
+      - server
