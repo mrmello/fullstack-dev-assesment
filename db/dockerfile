@@ -1,4 +1,0 @@
-FROM mongo:3.2
-
-COPY data.json /data.json
-CMD mongoimport --host mongodb --db reach-engine --collection Campaigns --type json --file /data.json --jsonArray
