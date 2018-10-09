@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const Campaign = require('./models/Campaign');
 const app = express();
+var campaignsRouter = require('./routes/CampaignsRouter');
 
 app.use(bodyParser.urlencoded({ extended: false }));
 
@@ -18,7 +19,7 @@ mongoose
     const data = require('./data.json')
     Campaign.deleteMany({}, function(err) {
       if (err) {
-          console.log(err)
+        console.log(err)
       } else {
         Campaign.collection.insertMany(data, null)
       }
@@ -27,11 +28,7 @@ mongoose
   })
   .catch(err => console.log(err));
 
-app.get('/', (req, res) => {
-  Campaign.find( {id: 100000002})
-    .then(items => res.send(items))
-    .catch(err => res.status(404).json({ msg: 'No items found' }));
-});
+app.use('/campaigns', campaignsRouter);
 
 const port = 3000;
 

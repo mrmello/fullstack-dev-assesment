@@ -10,4 +10,4 @@ const CampaignSchema = new Schema({
   platforms: { type: Object, required: true},
 });
 
-module.exports = Campaign = mongoose.model('data', CampaignSchema);
+module.exports = Campaign = mongoose.model('campaign', CampaignSchema);
