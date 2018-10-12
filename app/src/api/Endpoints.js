@@ -3,7 +3,7 @@
  */
 
 const endpoints = {
-  TESTING         :   'https://jsonplaceholder.typicode.com/todos',
+  TESTING         :   'http://localhost:9080/campaigns',
 }
 
 export default endpoints

@@ -4,6 +4,7 @@ const { sendErrors } = require('../routes/handleErrors')
 const Campaign = mongoose.model('campaign');
 
 exports.listAllCampaings = function(req, res) {
+  console.log('here')
   Campaign.find()
     .then(resp => {res.send(resp)})
     .catch(err => {sendErrors(err)});

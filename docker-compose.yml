@@ -5,7 +5,7 @@ services:
     restart: always
     build: ./server
     ports:
-      - '8080:3000'
+      - '9080:3000'
     depends_on:
       - mongodb
     volumes: ['./server:/usr/src/app']
@@ -15,11 +15,22 @@ services:
     image: mongo
     ports:
       - '27017:27017'
-  app:
-    container_name: app
-    restart: always
-    build: ./app
-    ports:
-      - '80:80'
+  # app:
+  #   container_name: app
+  #   restart: always
+  #   build: ./app
+  #   ports:
+  #     - '80:80'
+  #   links:
+  #     - server
+  #   depends_on:
+  #     - server
+  #   volumes: ['./app:/usr/src/app']
+  test:
+    container_name: test
+    build: ./test
+    links:
+      - server
     depends_on:
       - server
+    volumes: ['./test:/usr/src/app']
