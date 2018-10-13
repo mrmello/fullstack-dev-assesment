@@ -1,40 +1,61 @@
 import React from 'react'
+import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
+import { fetchCampaigns } from '../../actions'
+import { bindActionCreators } from 'redux'
 import { withStyles } from '@material-ui/core/styles'
 import Paper from '@material-ui/core/Paper'
 import Tabs from '@material-ui/core/Tabs'
 import Tab from '@material-ui/core/Tab'
 import styles from './CampaignStatusTabStyles'
-import CampaignStatusTabContainer from './CampaignStatusTabContainer';
+import CampaignStatusTabContainer from './tabContainer/CampaignStatusTabContainer'
 
 class CampaignStatusTab extends React.Component {
-  state = {
-    value: 0,
+  constructor() {
+    super()
+    this.state = {
+      value: 0
+    }
   }
 
-  handleChange = (event, value) => {
-    this.setState({ value })
+  componentDidMount() {
+    this.props.fetchCampaigns()
+  }
+
+  renderTabLabels() {
+    return this.props.campaigns.map((campaign, i) => {
+      return (
+        <Tab key={i} label={campaign.keys().next().value} />
+      )
+    })
+  }
+
+  renderTabContainers() {
+    return this.props.campaigns.map((campaign, i) => {
+      const { value } = this.state
+      return value === i && <CampaignStatusTabContainer key={i} data={campaign.get(String(campaign.keys().next().value))} />
+    })
   }
 
   render() {
+    const handleChange = (event, value) => {
+      this.setState({ value })
+    }
+
+    if(!this.props.campaigns) return null
     const { classes } = this.props
-    const { value } = this.state
     return (
       <Paper className={classes.root}>
         <Tabs
           value={this.state.value}
-          onChange={this.handleChange}
+          onChange={handleChange}
           indicatorColor="primary"
           textColor="primary"
           centered
         >
-          <Tab label="Delivering" />
-          <Tab label="Scheduled" />
-          <Tab label="Ended" />
+          {this.renderTabLabels()}
         </Tabs>
-        {value === 0 && <CampaignStatusTabContainer data="Item One"></CampaignStatusTabContainer>}
-        {value === 1 && <CampaignStatusTabContainer data="2"></CampaignStatusTabContainer>}
-        {value === 2 && <CampaignStatusTabContainer data="three"></CampaignStatusTabContainer>}
+        {this.renderTabContainers()}
       </Paper>
     )
   }
@@ -42,6 +63,18 @@ class CampaignStatusTab extends React.Component {
 
 CampaignStatusTab.propTypes = {
   classes: PropTypes.object.isRequired,
+  fetchCampaigns: PropTypes.func,
+  campaigns: PropTypes.array
 }
 
-export default withStyles(styles)(CampaignStatusTab)
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators({ fetchCampaigns: fetchCampaigns}, dispatch)
+}
+
+function mapStateToProps(state) {
+  return {
+    campaigns: state.campaigns.campaigns
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(withStyles(styles)(CampaignStatusTab))
