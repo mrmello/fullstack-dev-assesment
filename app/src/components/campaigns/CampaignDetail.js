@@ -4,20 +4,20 @@ import PropTypes from 'prop-types'
 import { fetchCampaigns } from '../../actions'
 import { bindActionCreators } from 'redux'
 
-class Campaigns extends Component {
+class CampaignDetail extends Component {
 
   componentDidMount() {
-    this.props.fetchCampaigns()
+    if(!this.props.campaigns) {
+      this.props.fetchCampaigns()
+    }
   }
 
   renderList() {
-    return this.props.campaigns.map((campaing) => {
-      return (
-        <div key={campaing.id}>
-          <span>{campaing.title}</span>
-        </div>
-      )
-    })
+    console.log(this.props.campaigns)
+    console.log(this.props.match)
+    return (
+      null
+    )
   }
 
   render() {
@@ -30,7 +30,7 @@ class Campaigns extends Component {
   }
 }
 
-Campaigns.propTypes = {
+CampaignDetail.propTypes = {
   campaigns: PropTypes.array,
   fetchCampaigns:PropTypes.func
 }
@@ -40,8 +40,10 @@ function mapDispatchToProps(dispatch) {
 }
 
 function mapStateToProps(state) {
+  console.log(state)
   return {
-    campaigns: state.campaigns.campaigns
+    campaigns: state.campaigns.campaigns,
+    selectedCampaign: state.campaigns.selectedCampaign
   }
 }
-export default connect(mapStateToProps, mapDispatchToProps)(Campaigns)
+export default connect(mapStateToProps, mapDispatchToProps)(CampaignDetail)

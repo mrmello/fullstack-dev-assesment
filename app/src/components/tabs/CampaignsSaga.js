@@ -17,8 +17,14 @@ function* fetchCampaigns() {
   yield put({type: types.FETCH_CAMPAIGNS_SUCCEEDED, payload: arrayStatus})
 }
 
+function* fetchCampaignById(action) {
+  const response = yield call(Api.fetchCampaignById, action.payload)
+  yield put({type: types.FETCH_CAMPAIGN_BY_ID_SUCCEEDED, payload: response})
+}
+
 function* watcherWeatherSaga() {
   yield takeLatest(types.FETCH_CAMPAIGNS_REQUESTED, fetchCampaigns)
+  yield takeLatest(types.FETCH_CAMPAIGN_BY_ID_REQUESTED, fetchCampaignById)
 }
 
 export default watcherWeatherSaga

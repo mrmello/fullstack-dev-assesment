@@ -5,7 +5,7 @@ import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles'
 import purple from '@material-ui/core/colors/purple'
 import green from '@material-ui/core/colors/green'
 import { HashRouter, Route } from "react-router-dom"
-import Campaigns from './components/campaigns/Campaigns'
+import CampaignDetail from './components/campaigns/CampaignDetail'
 
 const theme = createMuiTheme({
   palette: {
@@ -27,7 +27,7 @@ class App extends Component {
         <MuiThemeProvider theme={theme} >
           <Header />
           <Route exact path="/" component={CampaignStatusTab} />
-          <Route path="/:id" component={Campaigns} />
+          <Route path="/:id" component={CampaignDetail} />
         </MuiThemeProvider>
       </HashRouter>
     )
