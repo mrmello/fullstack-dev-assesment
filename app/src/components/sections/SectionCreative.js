@@ -4,33 +4,46 @@ import PropTypes from 'prop-types'
 import Paper from '@material-ui/core/Paper'
 import { withStyles } from '@material-ui/core/styles'
 
-const styles = {
+const styles = theme => ({
   root: {
     padding: 10,
   },
   headline: {
     fontFamily: 'Roboto',
-    color: 'white',
-    fontSize: 18,
+    color: 'black',
+    fontSize: 14,
+    top: 0,
+    [theme.breakpoints.up('md')]: {
+      color: 'white',
+      fontSize: 18,
+      textShadow: '-1px 0 gray, 0 1px gray, 1px 0 gray, 0 -1px gray',
+      top: 40,
+    },
     paddingLeft: 10,
-    textShadow: '-1px 0 gray, 0 1px gray, 1px 0 gray, 0 -1px gray',
-    top: 40,
     position: 'relative'
   },
   description: {
     fontFamily: 'Roboto',
-    color: 'white',
-    fontSize: 13,
+    color: 'black',
+    fontSize: 11,
+    top: 0,
+    [theme.breakpoints.up('md')]: {
+      color: 'white',
+      fontSize: 13,
+      textShadow: '-1px 0 gray, 0 1px gray, 1px 0 gray, 0 -1px gray',
+      top: -45,
+    },
     paddingLeft: 10,
-    textShadow: '-1px 0 gray, 0 1px gray, 1px 0 gray, 0 -1px gray',
-    top: -45,
     position: 'relative',
   },
   link: {
     textDecoration: 'none',
-    width:"60%"
+    width: '100%',
+    [theme.breakpoints.up('sm')]: {
+      width: '60%',
+    },
   }
-}
+})
 
 const SectionCreative = ({ creatives, classes }) => {
   return (
