@@ -1,20 +1,36 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import Paper from '@material-ui/core/Paper'
+import { withStyles } from '@material-ui/core/styles'
 
-const Graph = ({ total, remaining, label}) => {
+const styles = theme => ({
+  root: {
+    margin: 10,
+    padding: 10,
+    [theme.breakpoints.up('md')]: {
+      display: 'inline-block',
+      margin: 10,
+      padding: 10,
+      minWidth: '200px',
+    },
+  },
+})
+
+const Graph = ({ total, remaining, label, classes }) => {
   return (
-    <div>
+    <Paper className={classes.root}>
       <h3>{label}</h3>
       <p>{total}</p>
       <p>{remaining}</p>
-    </div>
+    </Paper>
   )
 }
 
 Graph.propTypes = {
   total: PropTypes.number.isRequired,
   remaining: PropTypes.number.isRequired,
-  label: PropTypes.string
+  label: PropTypes.string,
+  classes: PropTypes.object.isRequired
 }
 
-export default Graph
+export default (withStyles(styles)(Graph))

@@ -12,6 +12,7 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
 import SectionCreative from '../sections/SectionCreative'
 import SectionStatus from '../sections/SectionStatus'
 import SectionAudience from '../sections/SectionAudience'
+import SectionInsights from '../sections/SectionInsights';
 
 const styles = theme => ({
   root: {
@@ -29,9 +30,12 @@ const styles = theme => ({
   },
   wrapper: {
     display: 'grid',
-    gridTemplateColumns: '2fr 1fr',
+    gridTemplateColumns: '1fr',
+    [theme.breakpoints.up('md')]: {
+      gridTemplateColumns: '2fr 1fr',
+    },
     gridGap: '1em',
-    gridAutoRows: 'max-content'
+    gridAutoRows: 'auto'
   },
   sectionCreative: {
     gridColumnStart: '1',
@@ -40,16 +44,40 @@ const styles = theme => ({
     gridRowEnd: '3',
   },
   sectionStatus: {
-    gridColumnStart: '2',
-    gridColumnEnd: '3',
-    gridRowStart: '1',
-    gridRowEnd: '2',
+    gridColumnStart: '1',
+    gridColumnEnd: '2',
+    gridRowStart: '3',
+    gridRowEnd: '4',
+    [theme.breakpoints.up('md')]: {
+      gridColumnStart: '2',
+      gridColumnEnd: '3',
+      gridRowStart: '1',
+      gridRowEnd: '2',
+    },
   },
   sectionAudience: {
-    gridColumnStart: '2',
-    gridColumnEnd: '3',
-    gridRowStart: '2',
-    gridRowEnd: '3',
+    gridColumnStart: '1',
+    gridColumnEnd: '2',
+    gridRowStart: '4',
+    gridRowEnd: '5',
+    [theme.breakpoints.up('md')]: {
+      gridColumnStart: '2',
+      gridColumnEnd: '3',
+      gridRowStart: '2',
+      gridRowEnd: '3',
+    },
+  },
+  sectionInsights: {
+    gridColumnStart: '1',
+    gridColumnEnd: '2',
+    gridRowStart: '6',
+    gridRowEnd: '7',
+    [theme.breakpoints.up('md')]: {
+      gridColumnStart: '1',
+      gridColumnEnd: '3',
+      gridRowStart: '3',
+      gridRowEnd: '3',
+    },
   }
 })
 class CampaignDetail extends Component {
@@ -100,6 +128,9 @@ class CampaignDetail extends Component {
                   </div>
                   <div className={classes.sectionAudience}>
                     <SectionAudience audience={platforms[p].target_audiance} />
+                  </div>
+                  <div className={classes.sectionInsights}>
+                    <SectionInsights insights={platforms[p].insights} />
                   </div>
                 </div>
               </ExpansionPanelDetails>

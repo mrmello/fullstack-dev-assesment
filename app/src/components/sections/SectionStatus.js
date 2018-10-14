@@ -19,7 +19,7 @@ const styles = () => ({
 const SectionStatus = ({ campaign, classes }) => {
   return (
     <Paper className={classes.root}>
-      <Typography className={classes.headline}>{campaign.status}</Typography>
+      <Typography className={classes.headline}>Status: {campaign.status}</Typography>
       <Graph total={campaign.total_budget} remaining={campaign.remaining_budget} label="Budget" />
       <Typography className={classes.description}>{`${new Date(campaign.start_date).toLocaleDateString()} to ${new Date(campaign.end_date).toLocaleDateString()}`}</Typography>
     </Paper>
