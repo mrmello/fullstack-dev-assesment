@@ -13,7 +13,7 @@ import SectionCreative from '../sections/SectionCreative'
 
 const styles = theme => ({
   root: {
-    width: '100%',
+    felxGrow: 1,
   },
   heading: {
     fontSize: theme.typography.pxToRem(15),
@@ -25,6 +25,30 @@ const styles = theme => ({
     fontSize: theme.typography.pxToRem(15),
     color: theme.palette.text.secondary,
   },
+  wrapper: {
+    display: 'grid',
+    gridTemplateColumns: '2fr 1fr',
+    gridGap: '0.5em'
+  },
+  sectionCreative: {
+    gridColumnStart: '1',
+    gridColumnEnd: '2',
+    gridRowStart: '1',
+    gridRowEnd: '3',
+  },
+  sectionStatus: {
+    gridColumnStart: '2',
+    gridColumnEnd: '3',
+    gridRowStart: '1',
+    gridRowEnd: '2',
+  },
+  sectionAudience: {
+    gridColumnStart: '2',
+    gridColumnEnd: '3',
+    gridRowStart: '2',
+    gridRowEnd: '3',
+    alignSelf: 'flex-end'
+  }
 })
 class CampaignDetail extends Component {
   constructor() {
@@ -65,7 +89,17 @@ class CampaignDetail extends Component {
                 </Typography>
               </ExpansionPanelSummary>
               <ExpansionPanelDetails>
-                <SectionCreative creatives={platforms[p].creatives} />
+                <div className={classes.wrapper}>
+                  <div className={classes.sectionCreative}>
+                    <SectionCreative creatives={platforms[p].creatives} />
+                  </div>
+                  <div className={classes.sectionStatus}>
+                    <SectionCreative creatives={platforms[p].creatives} />
+                  </div>
+                  <div className={classes.sectionAudience}>
+                    <SectionCreative creatives={platforms[p].creatives} />
+                  </div>
+                </div>
               </ExpansionPanelDetails>
             </ExpansionPanel>
           )

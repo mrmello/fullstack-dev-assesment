@@ -38,10 +38,6 @@ const styles = theme => ({
   },
   link: {
     textDecoration: 'none',
-    width: '100%',
-    [theme.breakpoints.up('sm')]: {
-      width: '60%',
-    },
   }
 })
 
