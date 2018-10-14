@@ -19,7 +19,7 @@ function* fetchCampaigns() {
 
 function* fetchCampaignById(action) {
   const response = yield call(Api.fetchCampaignById, action.payload)
-  yield put({type: types.FETCH_CAMPAIGN_BY_ID_SUCCEEDED, payload: response})
+  yield put({type: types.FETCH_CAMPAIGN_BY_ID_SUCCEEDED, payload: response.data[0]})
 }
 
 function* watcherWeatherSaga() {

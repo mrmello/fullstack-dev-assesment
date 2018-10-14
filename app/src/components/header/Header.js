@@ -6,7 +6,7 @@ import IconButton from '@material-ui/core/IconButton'
 import Typography from '@material-ui/core/Typography'
 import InputBase from '@material-ui/core/InputBase'
 import { withStyles } from '@material-ui/core/styles'
-import MenuIcon from '@material-ui/icons/Menu'
+import HomeIcon from '@material-ui/icons/Home'
 import SearchIcon from '@material-ui/icons/Search'
 import styles from './HeaderStyles'
 import { Link } from 'react-router-dom'
@@ -18,7 +18,7 @@ function Header(props) {
       <AppBar position="static">
         <Toolbar>
           <IconButton component={Link} to={'/'} className={classes.menuButton} color="inherit" aria-label="Open drawer">
-            <MenuIcon />
+            <HomeIcon />
           </IconButton>
           <Typography className={classes.title} variant="h6" color="inherit" noWrap>
             Material-UI

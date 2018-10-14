@@ -1,8 +1,8 @@
-var router = require('express').Router();
+var router = require('express').Router()
 const CampaignsController = require('../controllers/CampaignsController')
 
 // Product Routes //
-router.get('/', CampaignsController.listAllCampaings);
-router.get('/:id', CampaignsController.campaignDetail);
+router.get('/', CampaignsController.listAllCampaings)
+router.get('/:id', CampaignsController.campaignDetail)
 
-module.exports = router;
+module.exports = router

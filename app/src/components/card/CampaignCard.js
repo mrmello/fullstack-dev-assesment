@@ -9,7 +9,8 @@ import Typography from '@material-ui/core/Typography'
 import { Link } from 'react-router-dom'
 import Graph from '../graphs/Graph'
 import Store from '../../store'
-import { selectCampaign } from '../../actions';
+import { selectCampaign } from '../../actions'
+import Ionicon from 'react-ionicons'
 
 const styles = {
   card: {
@@ -33,7 +34,7 @@ function CampaignCard(props) {
   function renderButtons(platforms){
     return Object.keys(platforms).map((p, i) => {
       return (
-        <Button key={i} size="small">{p}</Button>
+        <Ionicon key={i} icon={`logo-${p}`}/>
       )
     })
   }
@@ -58,15 +59,15 @@ function CampaignCard(props) {
     <Card className={classes.card}>
       <CardContent>
         <Typography className={classes.title} color="textSecondary" gutterBottom>
-          {campaign.goal}
-        </Typography>
-        <Typography variant="h5" component="h2">
           {campaign.name}
         </Typography>
+        <Typography variant="h5" component="h2">
+          {campaign.goal}
+        </Typography>
         {renderGraph(campaign)}
+        {renderButtons(campaign.platforms)}
       </CardContent>
       <CardActions>
-        {renderButtons(campaign.platforms)}
         <Button size="small" component={Link} to={`/${campaign.id}`} onClick={handleClick(campaign)}>Details</Button>
       </CardActions>
     </Card>
