@@ -10,6 +10,8 @@ import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary'
 import Typography from '@material-ui/core/Typography'
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
 import SectionCreative from '../sections/SectionCreative'
+import SectionStatus from '../sections/SectionStatus'
+import SectionAudience from '../sections/SectionAudience'
 
 const styles = theme => ({
   root: {
@@ -28,7 +30,8 @@ const styles = theme => ({
   wrapper: {
     display: 'grid',
     gridTemplateColumns: '2fr 1fr',
-    gridGap: '0.5em'
+    gridGap: '1em',
+    gridAutoRows: 'max-content'
   },
   sectionCreative: {
     gridColumnStart: '1',
@@ -47,7 +50,6 @@ const styles = theme => ({
     gridColumnEnd: '3',
     gridRowStart: '2',
     gridRowEnd: '3',
-    alignSelf: 'flex-end'
   }
 })
 class CampaignDetail extends Component {
@@ -94,10 +96,10 @@ class CampaignDetail extends Component {
                     <SectionCreative creatives={platforms[p].creatives} />
                   </div>
                   <div className={classes.sectionStatus}>
-                    <SectionCreative creatives={platforms[p].creatives} />
+                    <SectionStatus campaign={platforms[p]} />
                   </div>
                   <div className={classes.sectionAudience}>
-                    <SectionCreative creatives={platforms[p].creatives} />
+                    <SectionAudience audience={platforms[p].target_audiance} />
                   </div>
                 </div>
               </ExpansionPanelDetails>

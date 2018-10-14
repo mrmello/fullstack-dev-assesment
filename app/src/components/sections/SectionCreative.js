@@ -48,7 +48,7 @@ const SectionCreative = ({ creatives, classes }) => {
         <Typography className={classes.headline}>
           {creatives.header || (`${creatives.header_1}, ${creatives.header_2}`)}
         </Typography>
-        <img src={require(`../../assets/images/${creatives.image}`)} width="100%"/>
+        <img alt={creatives.description} src={require(`../../assets/images/${creatives.image}`)} width="100%"/>
         <Typography className={classes.description}>{creatives.description}</Typography>
       </Paper>
     </a>

@@ -1,6 +1,7 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
-const Graph = ({ total = 10, remaining = 7, label = 'Test'}) => {
+const Graph = ({ total, remaining, label}) => {
   return (
     <div>
       <h3>{label}</h3>
@@ -8,6 +9,12 @@ const Graph = ({ total = 10, remaining = 7, label = 'Test'}) => {
       <p>{remaining}</p>
     </div>
   )
+}
+
+Graph.propTypes = {
+  total: PropTypes.number.isRequired,
+  remaining: PropTypes.number.isRequired,
+  label: PropTypes.string
 }
 
 export default Graph
