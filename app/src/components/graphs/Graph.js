@@ -16,7 +16,7 @@ const styles = theme => ({
   },
 })
 
-const Graph = ({ total, remaining, label, classes }) => {
+const Graph = ({ total, remaining, label = "Label", classes }) => {
   return (
     <Paper className={classes.root}>
       <h3>{label}</h3>

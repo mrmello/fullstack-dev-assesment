@@ -12,7 +12,7 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
 import SectionCreative from '../sections/SectionCreative'
 import SectionStatus from '../sections/SectionStatus'
 import SectionAudience from '../sections/SectionAudience'
-import SectionInsights from '../sections/SectionInsights';
+import SectionInsights from '../sections/SectionInsights'
 
 const styles = theme => ({
   root: {

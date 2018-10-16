@@ -1,6 +1,9 @@
 version: '3'
 services:
   server:
+    environment:
+      - PORT=3000
+      - MONGO_URL=mongodb://mongodb:27017/
     container_name: server
     restart: always
     build: ./server
@@ -12,7 +15,7 @@ services:
   mongodb:
     container_name: mongodb
     image: mongo:3.2.6
-    image: mongo
+    build: ./server/db
     ports:
       - '27017:27017'
   # app:
