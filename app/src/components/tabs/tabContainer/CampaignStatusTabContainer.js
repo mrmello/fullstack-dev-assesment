@@ -9,8 +9,12 @@ const styles = theme => ({
     ...theme.mixins.gutters(),
     paddingTop: theme.spacing.unit * 2,
     paddingBottom: theme.spacing.unit * 2,
-    justifyContent: 'center'
+    backgroundColor: '#f1f1f1',
+    flexGrow:1,
   },
+  cent: {
+    padding: 20
+  }
 })
 
 function CampaignStatusTabContainer(props) {
@@ -24,7 +28,7 @@ function CampaignStatusTabContainer(props) {
   const { classes } = props
   return (
     <div>
-      <Paper className={classes.root} elevation={1} >
+      <Paper className={classes.root} elevation={0} square>
         {renderCards()}
       </Paper>
     </div>

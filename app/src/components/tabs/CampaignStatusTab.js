@@ -33,7 +33,7 @@ class CampaignStatusTab extends React.Component {
   renderTabContainers() {
     return this.props.campaigns.map((campaign, i) => {
       const { value } = this.state
-      return value === i && <CampaignStatusTabContainer key={i} data={campaign.get(String(campaign.keys().next().value))} />
+      return value === i && <CampaignStatusTabContainer style={styles.campaignStatusTabContainer} key={i} data={campaign.get(String(campaign.keys().next().value))} />
     })
   }
 
@@ -45,7 +45,7 @@ class CampaignStatusTab extends React.Component {
     if(!this.props.campaigns) return null
     const { classes } = this.props
     return (
-      <Paper className={classes.root}>
+      <Paper className={classes.root} square>
         <Tabs
           value={this.state.value}
           onChange={handleChange}

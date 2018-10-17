@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import Header from './components/header/Header'
 import CampaignStatusTab from './components/tabs/CampaignStatusTab'
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles'
-import green from '@material-ui/core/colors/green'
 import { HashRouter, Route } from "react-router-dom"
 import CampaignDetail from './components/campaigns/CampaignDetail'
 
@@ -13,8 +12,8 @@ const theme = createMuiTheme({
       // Name of the rule
       root: {
         // Some CSS
-        background: 'linear-gradient(45deg, #2196F3 30%, #21CBF3 90%)',
-        boxShadow: '0 3px 5px 2px rgba(33, 203, 243, .3)',
+        background: 'linear-gradient(45deg, #2196F3 30%, #1bd3b4 90%)',
+        boxShadow: '0 3px 5px 2px rgba(0, 0, 0, 0.12)',
         borderRadius: 3,
         border: 0,
         color: 'white',
@@ -26,8 +25,8 @@ const theme = createMuiTheme({
       // Name of the rule
       root: {
         // Some CSS
-        background: 'linear-gradient(45deg, #2196F3 30%, #21CBF3 90%)',
-        boxShadow: '0 3px 5px 2px rgba(33, 203, 243, .3)',
+        background: 'linear-gradient(45deg, #2196F3 30%, #1bd3b4 90%)',
+        boxShadow: '0 3px 5px 2px rgba(0, 0, 0, 0.12)',
         borderRadius: 3,
         border: 0,
         color: 'white',
@@ -35,11 +34,11 @@ const theme = createMuiTheme({
         padding: '0 30px',
       },
     },
-    MuiB: {
+    MuiExpansionPanelDetails: {
       // Name of the rule
       root: {
         // Some CSS
-        background: 'linear-gradient(45deg, ##092943 30%, #196EB1 90%)',
+        backgroundColor: '#f1f1f1',
       },
     },
   },
@@ -47,7 +46,9 @@ const theme = createMuiTheme({
     primary: {
       main: '#2196F3',
     },
-    secondary: green,
+    secondary: {
+      main: '#2196F3',
+    },
   },
   status: {
     danger: 'orange',
@@ -62,7 +63,7 @@ class App extends Component {
     return (
       <HashRouter>
         <MuiThemeProvider theme={theme} >
-          <Header />
+          <Header title="NANOCORP AG"/>
           <Route exact path="/" component={CampaignStatusTab} />
           <Route path="/:id" component={CampaignDetail} />
         </MuiThemeProvider>

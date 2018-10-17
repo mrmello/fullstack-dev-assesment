@@ -22,7 +22,7 @@ const styles = theme => ({
     fontSize: theme.typography.pxToRem(15),
     flexBasis: '33.33%',
     flexShrink: 0,
-    textTransform: 'capitalize'
+    textTransform: 'uppercase'
   },
   secondaryHeading: {
     fontSize: theme.typography.pxToRem(15),

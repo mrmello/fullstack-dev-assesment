@@ -12,6 +12,7 @@
     "@material-ui/icons": "^3.0.1",
     "axios": "^0.18.0",
     "react": "^16.5.2",
+    "react-circle": "^1.1.1",
     "react-dom": "^16.5.2",
     "react-ionicons": "^2.1.6",
     "react-redux": "^5.0.7",

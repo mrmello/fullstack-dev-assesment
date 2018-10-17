@@ -13,28 +13,29 @@ import { selectCampaign } from '../../actions'
 import Ionicon from 'react-ionicons'
 
 const styles = {
-  card: {
-    minWidth: 275,
-    maxWidth: 500
-  },
-  bullet: {
-    display: 'inline-block',
-    margin: '0 2px',
-    transform: 'scale(0.8)',
+  goal: {
+    fontSize: 18,
+    textTransform: 'uppercase',
   },
   title: {
     fontSize: 14,
+    textTransform: 'uppercase',
   },
-  pos: {
-    marginBottom: 12,
+  actions: {
+    justifyContent: 'flex-end',
+    marginBottom: 10
   },
+  icons: {
+    textAlign: 'right',
+    fill: '#f1f1f1'
+  }
 }
 
 function CampaignCard(props) {
   function renderButtons(platforms){
     return Object.keys(platforms).map((p, i) => {
       return (
-        <Ionicon key={i} icon={`logo-${p}`}/>
+        <Ionicon key={i} icon={`logo-${p}`} color="#2196F3"/>
       )
     })
   }
@@ -46,7 +47,7 @@ function CampaignCard(props) {
       remaining_budget += campaign.platforms[p].remaining_budget
     })
     return (
-      <Graph total={total_budget} remaining={remaining_budget} label="Used Budget"/>
+      <Graph total={total_budget} remaining={remaining_budget} label="Budget"/>
     )
   }
 
@@ -56,19 +57,21 @@ function CampaignCard(props) {
 
   const { classes, campaign } = props
   return (
-    <Card className={classes.card}>
+    <Card>
       <CardContent>
         <Typography className={classes.title} color="textSecondary" gutterBottom>
           {campaign.name}
         </Typography>
-        <Typography variant="h5" component="h2">
+        <div className={classes.icons}>
+          {renderButtons(campaign.platforms)}
+        </div>
+        <Typography variant="h5" component="h2" className={classes.goal}>
           {campaign.goal}
         </Typography>
         {renderGraph(campaign)}
-        {renderButtons(campaign.platforms)}
       </CardContent>
-      <CardActions>
-        <Button size="small" component={Link} to={`/${campaign.id}`} onClick={handleClick(campaign)}>Details</Button>
+      <CardActions className={classes.actions}>
+        <Button size="medium" component={Link} to={`/${campaign.id}`} onClick={handleClick(campaign)}>Details</Button>
       </CardActions>
     </Card>
   )

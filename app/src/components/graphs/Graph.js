@@ -1,36 +1,45 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import Paper from '@material-ui/core/Paper'
+import Circle from 'react-circle'
 import { withStyles } from '@material-ui/core/styles'
+import Typography from '@material-ui/core/Typography'
 
-const styles = theme => ({
-  root: {
-    margin: 10,
-    padding: 10,
-    [theme.breakpoints.up('md')]: {
-      display: 'inline-block',
-      margin: 10,
-      padding: 10,
-      minWidth: '200px',
-    },
+const styles = () => ({
+  graph: {
+    textAlign: 'center',
   },
+  used: {
+    color: '#2196F3',
+  },
+  remaining: {
+    color: '#1bd3b4',
+  }
 })
 
-const Graph = ({ total, remaining, label = "Label", classes }) => {
+const Graph = ({ total, remaining, label, classes }) => {
+  let progress = (100 - ((remaining * 100) / total)).toFixed(0)
   return (
-    <Paper className={classes.root}>
-      <h3>{label}</h3>
-      <p>{total}</p>
-      <p>{remaining}</p>
-    </Paper>
+    <div className={classes.graph}>
+      <Typography color="textSecondary" >{label}</Typography>
+      <Circle
+        progress={progress}
+        textColor="#2196F3"
+        progressColor="#2196F3"
+        bgColor="#1bd3b4"
+        size="200"
+        roundedStroke
+      />
+      <Typography className={classes.remaining}>Remaining</Typography>
+      <Typography className={classes.used}>Used</Typography>
+    </div>
   )
 }
 
 Graph.propTypes = {
   total: PropTypes.number.isRequired,
   remaining: PropTypes.number.isRequired,
-  label: PropTypes.string,
-  classes: PropTypes.object.isRequired
+  classes: PropTypes.object.isRequired,
+  label: PropTypes.string
 }
 
 export default (withStyles(styles)(Graph))
