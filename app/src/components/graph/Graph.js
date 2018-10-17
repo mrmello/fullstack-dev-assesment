@@ -3,18 +3,7 @@ import PropTypes from 'prop-types'
 import Circle from 'react-circle'
 import { withStyles } from '@material-ui/core/styles'
 import Typography from '@material-ui/core/Typography'
-
-const styles = () => ({
-  graph: {
-    textAlign: 'center',
-  },
-  used: {
-    color: '#2196F3',
-  },
-  remaining: {
-    color: '#1bd3b4',
-  }
-})
+import styles from './GraphStyles'
 
 const Graph = ({ total, remaining, label, classes }) => {
   let progress = (100 - ((remaining * 100) / total)).toFixed(0)

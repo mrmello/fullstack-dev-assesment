@@ -1,5 +1,5 @@
 import { all, fork } from 'redux-saga/effects'
-import campaignsSaga from '../components/tabs/CampaignsSaga'
+import campaignsSaga from './CampaignsSaga'
 
 /**
  * Runs the saga watchers to work as a middleware for the redux store

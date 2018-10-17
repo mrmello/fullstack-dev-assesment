@@ -9,77 +9,12 @@ import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails'
 import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary'
 import Typography from '@material-ui/core/Typography'
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
-import SectionCreative from '../sections/SectionCreative'
-import SectionStatus from '../sections/SectionStatus'
-import SectionAudience from '../sections/SectionAudience'
-import SectionInsights from '../sections/SectionInsights'
+import SectionCreative from './sectionCreative/SectionCreative'
+import SectionStatus from './sectionStatus/SectionStatus'
+import SectionAudience from './sectionAudience/SectionAudience'
+import SectionInsights from './sectionInsights/SectionInsights'
+import styles from './CampaignDetailStyles'
 
-const styles = theme => ({
-  root: {
-    felxGrow: 1,
-  },
-  heading: {
-    fontSize: theme.typography.pxToRem(15),
-    flexBasis: '33.33%',
-    flexShrink: 0,
-    textTransform: 'uppercase'
-  },
-  secondaryHeading: {
-    fontSize: theme.typography.pxToRem(15),
-    color: theme.palette.text.secondary,
-  },
-  wrapper: {
-    display: 'grid',
-    gridTemplateColumns: '1fr',
-    [theme.breakpoints.up('md')]: {
-      gridTemplateColumns: '2fr 1fr',
-    },
-    gridGap: '1em',
-    gridAutoRows: 'auto'
-  },
-  sectionCreative: {
-    gridColumnStart: '1',
-    gridColumnEnd: '2',
-    gridRowStart: '1',
-    gridRowEnd: '3',
-  },
-  sectionStatus: {
-    gridColumnStart: '1',
-    gridColumnEnd: '2',
-    gridRowStart: '3',
-    gridRowEnd: '4',
-    [theme.breakpoints.up('md')]: {
-      gridColumnStart: '2',
-      gridColumnEnd: '3',
-      gridRowStart: '1',
-      gridRowEnd: '2',
-    },
-  },
-  sectionAudience: {
-    gridColumnStart: '1',
-    gridColumnEnd: '2',
-    gridRowStart: '4',
-    gridRowEnd: '5',
-    [theme.breakpoints.up('md')]: {
-      gridColumnStart: '2',
-      gridColumnEnd: '3',
-      gridRowStart: '2',
-      gridRowEnd: '3',
-    },
-  },
-  sectionInsights: {
-    gridColumnStart: '1',
-    gridColumnEnd: '2',
-    gridRowStart: '6',
-    gridRowEnd: '7',
-    [theme.breakpoints.up('md')]: {
-      gridColumnStart: '1',
-      gridColumnEnd: '3',
-      gridRowStart: '3',
-      gridRowEnd: '3',
-    },
-  }
-})
 class CampaignDetail extends Component {
   constructor() {
     super()

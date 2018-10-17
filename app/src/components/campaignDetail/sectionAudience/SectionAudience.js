@@ -4,27 +4,7 @@ import PropTypes from 'prop-types'
 import Paper from '@material-ui/core/Paper'
 import Divider from '@material-ui/core/Divider'
 import { withStyles } from '@material-ui/core/styles'
-
-const styles = () => ({
-  root: {
-    height: '90%',
-    padding: 10,
-  },
-  headline: {
-    fontFamily: 'Roboto',
-    color: 'rgba(58, 56, 56, 0.87)',
-    fontSize: 11,
-    fontWeight: 'bold',
-    top: 0,
-    position: 'relative',
-    paddingBottom: 5
-  },
-  description: {
-    paddingTop: 5,
-    fontSize: 11,
-    fontWeight: '500'
-  },
-})
+import styles from './SectionAudienceStyles'
 
 const SectionAudience = ({ audience, classes }) => {
   return (

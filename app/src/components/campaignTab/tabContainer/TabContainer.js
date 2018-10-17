@@ -2,23 +2,10 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { withStyles } from '@material-ui/core/styles'
 import Paper from '@material-ui/core/Paper'
-import CampaignCard from '../../card/CampaignCard'
-
-const styles = theme => ({
-  root: {
-    ...theme.mixins.gutters(),
-    paddingTop: theme.spacing.unit * 2,
-    paddingBottom: theme.spacing.unit * 2,
-    backgroundColor: '#f1f1f1',
-    flexGrow:1,
-  },
-  cent: {
-    padding: 20
-  }
-})
+import CampaignCard from '../../campaignCard/CampaignCard'
+import styles from './TabContainerStyles'
 
 function CampaignStatusTabContainer(props) {
-
   function renderCards() {
     const { data } = props
     return data.map((campaign, i) => {

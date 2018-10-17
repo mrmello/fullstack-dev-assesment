@@ -1,7 +1,7 @@
 import { createStore, applyMiddleware } from 'redux'
 import createSagaMiddleware from 'redux-saga'
-import sagas from './Sagas'
-import reducers from './Reducers'
+import sagas from './sagas'
+import reducers from './reducers'
 /**
  * Sets up the application Store, composed by redux and redux-saga
  */

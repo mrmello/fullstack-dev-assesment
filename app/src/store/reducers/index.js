@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux'
-import campaingsReducer from '../components/tabs/CampaignsReducer'
+import campaingsReducer from './CampaignsReducer'
 /**
  * Groups and returns the application reducers
  */

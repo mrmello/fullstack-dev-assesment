@@ -7,29 +7,11 @@ import CardContent from '@material-ui/core/CardContent'
 import Button from '@material-ui/core/Button'
 import Typography from '@material-ui/core/Typography'
 import { Link } from 'react-router-dom'
-import Graph from '../graphs/Graph'
+import Graph from '../graph/Graph'
 import Store from '../../store'
 import { selectCampaign } from '../../actions'
 import Ionicon from 'react-ionicons'
-
-const styles = {
-  goal: {
-    fontSize: 18,
-    textTransform: 'uppercase',
-  },
-  title: {
-    fontSize: 14,
-    textTransform: 'uppercase',
-  },
-  actions: {
-    justifyContent: 'flex-end',
-    marginBottom: 10
-  },
-  icons: {
-    textAlign: 'right',
-    fill: '#f1f1f1'
-  }
-}
+import styles from './CampaignCardStyles'
 
 function CampaignCard(props) {
   function renderButtons(platforms){

@@ -4,27 +4,8 @@ import Paper from '@material-ui/core/Paper'
 import Typography from '@material-ui/core/Typography'
 import { withStyles } from '@material-ui/core/styles'
 import Divider from '@material-ui/core/Divider'
-import Insight from '../insight/Insight'
-
-const styles = () => ({
-  root: {
-    textAlign: 'center',
-    padding: 10,
-  },
-  headline: {
-    textAlign: 'left',
-    fontFamily: 'Roboto',
-    color: 'rgba(58, 56, 56, 0.87)',
-    fontSize: 11,
-    fontWeight: 'bold',
-    paddingBottom: 5,
-    top: 0,
-    position: 'relative'
-  },
-  description: {
-
-  },
-})
+import Insight from './insight/Insight'
+import styles from './SectionInsightsStyles'
 
 const SectionInsights = ({ insights, classes }) => {
   return (

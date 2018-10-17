@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
-import Header from './components/header/Header'
-import CampaignStatusTab from './components/tabs/CampaignStatusTab'
+import Header from './header/Header'
+import CampaignTab from './campaignTab/CampaignTab'
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles'
 import { HashRouter, Route } from "react-router-dom"
-import CampaignDetail from './components/campaigns/CampaignDetail'
+import CampaignDetail from './campaignDetail/CampaignDetail'
 
 const theme = createMuiTheme({
   overrides: {
@@ -64,7 +64,7 @@ class App extends Component {
       <HashRouter>
         <MuiThemeProvider theme={theme} >
           <Header title="NANOCORP AG"/>
-          <Route exact path="/" component={CampaignStatusTab} />
+          <Route exact path="/" component={CampaignTab} />
           <Route path="/:id" component={CampaignDetail} />
         </MuiThemeProvider>
       </HashRouter>
