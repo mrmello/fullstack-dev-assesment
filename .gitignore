@@ -3,8 +3,7 @@
 # dependencies
 /app/node_modules
 /server/node_modules
-/test/node_modules
-
+/server/logs
 # testing
 /coverage
 
