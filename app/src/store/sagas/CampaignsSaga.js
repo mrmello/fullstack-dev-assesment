@@ -1,25 +1,26 @@
 import { call, put, takeLatest } from 'redux-saga/effects'
 import types from '../../actions/Types'
 import Api from '../../api'
+import { campaignsParser, campaignByIdParser } from '../../api/ResponseParser'
 
 function* fetchCampaigns() {
-  const response = yield call(Api.fetchCampaigns)
-  let arrayStatus = []
-  for(let campaign of response.data) {
-    var map = new Map()
-    let index = arrayStatus.findIndex(element => element.has(campaign.status))
-    if(index > -1) {
-      arrayStatus.splice(index, 1, map.set(campaign.status, [arrayStatus[index].get(campaign.status)[0], campaign]))
-    } else {
-      arrayStatus.push(map.set(campaign.status, [{campaign}]))
-    }
+  try {
+    const response = yield call(Api.fetchCampaigns)
+    let campaigns = yield call(campaignsParser, response)
+    yield put({type: types.FETCH_CAMPAIGNS_SUCCEEDED, payload: campaigns})
+  } catch (_) {
+    yield put({type: types.FETCH_CAMPAIGNS_FAILED, payload: "Something went =/"})
   }
-  yield put({type: types.FETCH_CAMPAIGNS_SUCCEEDED, payload: arrayStatus})
 }
 
 function* fetchCampaignById(action) {
-  const response = yield call(Api.fetchCampaignById, action.payload)
-  yield put({type: types.FETCH_CAMPAIGN_BY_ID_SUCCEEDED, payload: response.data[0]})
+  try {
+    const response = yield call(Api.fetchCampaignById, action.payload)
+    const campaign = yield call(campaignByIdParser, response)
+    yield put({type: types.FETCH_CAMPAIGN_BY_ID_SUCCEEDED, payload: campaign})
+  } catch (_) {
+    yield put({type: types.FETCH_CAMPAIGN_BY_ID_FAILED, payload: "Campaign not found =/"})
+  }
 }
 
 function* watcherWeatherSaga() {

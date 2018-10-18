@@ -9,6 +9,7 @@ const types = {
   FETCH_CAMPAIGN_BY_ID_SUCCEEDED: 'FETCH_CAMPAIGN_BY_ID_SUCCEEDED',
   FETCH_CAMPAIGN_BY_ID_FAILED:    'FETCH_CAMPAIGN_BY_ID_FAILED',
   SELECT_CAMPAIGN:                'SELECT_CAMPAIGN',
+  ERROR:                          'ERROR',
 }
 
 export default types
