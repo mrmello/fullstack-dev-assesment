@@ -29,11 +29,3 @@ services:
   #   depends_on:
   #     - server
   #   volumes: ['./app:/usr/src/app']
-  test:
-    container_name: test
-    build: ./test
-    links:
-      - server
-    depends_on:
-      - server
-    volumes: ['./test:/usr/src/app']

@@ -23,6 +23,7 @@ export default function(state = initialState, action) {
       errorOccured: null,
     }
   case types.FETCH_CAMPAIGN_BY_ID_FAILED:
+  case types.FETCH_CAMPAIGNS_FAILED:
     return {
       errorOccured: true,
       errorMessage: action.payload
