@@ -20,3 +20,6 @@ devDependencies:
 - `mocha-prepare` tests
 - `supertest` tests  
 - `nodemon` hot reload in dev
+
+
+The api documentation can be found on the swagger.
