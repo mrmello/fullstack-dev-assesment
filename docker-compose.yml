@@ -18,6 +18,14 @@ services:
     build: ./server/db
     ports:
       - '27017:27017'
+  swaggerui:
+    environment:
+      - BASE_URL=/swagger
+      - API_URL=http://localhost:9080/swagger
+    container_name: swaggerui
+    image: swaggerapi/swagger-ui
+    ports:
+      - '8082:8080'
   # app:
   #   container_name: app
   #   restart: always

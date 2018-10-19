@@ -7,6 +7,7 @@ exports.listAllCampaings = function(req, res) {
   Campaign.find()
     .then(resp => {
       logger.info(JSON.stringify(resp))
+      if(!resp[0]) res.status(400)
       res.send(resp)
     })
     .catch(err => {
@@ -21,6 +22,7 @@ exports.campaignDetail = function(req, res) {
   Campaign.find({ id: req.params.id})
     .then(resp => {
       logger.info(JSON.stringify(resp))
+      if(!resp.id) res.status(400)
       res.send(resp)
     })
     .catch(err => {
