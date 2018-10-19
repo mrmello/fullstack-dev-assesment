@@ -2,12 +2,11 @@ Description
 ----------
 
 This repository is intended to complete the task given in the original repo.
-The main technologies used to complete the task were:
- - React
+The main technology stack was:
+ - ReactJS
  - NodeJS
  - MongoDB
- 
- Docker is used to build everything up :)
+ - Docker
 
 How to run
 ----------
