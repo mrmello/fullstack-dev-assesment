@@ -18,10 +18,10 @@ How to run
  `$ docker-compose up `  
 
 When docker completes, the following will be avilable
- - The app: localhost:80/
- - The api documentation: localhost:9081/swagger
- - The api logs: localhost:9080/logs
- 
+ - The app: http://localhost:80/
+ - The api logs: http://localhost:9080/logs
+ - The api documentation: http://localhost:9081/swagger
+
  #### Detailed documentation
   - [Front-end](app/)
   - [Backend](server/)
