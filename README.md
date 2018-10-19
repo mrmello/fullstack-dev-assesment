@@ -19,7 +19,7 @@ How to run
 
 When docker completes, the following will be avilable
  - The app: http://localhost:80/
- - The api documentation: http://localhost:9082/swagger
+ - The api documentation: http://localhost:9081/swagger
  - The api logs: http://localhost:9080/logs
  
  #### Detailed documentation
