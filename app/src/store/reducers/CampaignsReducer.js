@@ -1,5 +1,5 @@
 import types from '../../actions/Types'
-// initial state when there is no data to show
+
 const initialState = {
   campaigns: null,
   selectedCampaign: null,

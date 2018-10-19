@@ -6,6 +6,9 @@ import { withStyles } from '@material-ui/core/styles'
 import Divider from '@material-ui/core/Divider'
 import styles from './SectionCreativeStyles'
 
+/**
+ * The Section to present the creative part of the campaing. Includes a image, title, description and link
+ */
 const SectionCreative = ({ creatives, classes }) => {
   return (
     <Paper className={classes.root} elevation={0} square>
@@ -23,7 +26,13 @@ const SectionCreative = ({ creatives, classes }) => {
 }
 
 SectionCreative.propTypes = {
+  /**
+   * The styling classes
+   */
   classes: PropTypes.object.isRequired,
+  /**
+   * The creative data to be shown
+   */
   creatives: PropTypes.object.isRequired
 }
 

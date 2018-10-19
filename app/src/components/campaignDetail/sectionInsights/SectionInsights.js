@@ -6,7 +6,10 @@ import { withStyles } from '@material-ui/core/styles'
 import Divider from '@material-ui/core/Divider'
 import Insight from './insight/Insight'
 import styles from './SectionInsightsStyles'
-
+/**
+ * Section of the dashboard that presents the insights data. Including impressions, clicks,
+ * website visits, nanos score, cost per click, click through rate and advanceds kip 1/2
+ */
 const SectionInsights = ({ insights, classes }) => {
   return (
     <Paper className={classes.root} elevation={0} square>
@@ -14,7 +17,7 @@ const SectionInsights = ({ insights, classes }) => {
       <Divider light />
       {typeof(insights.impressions) === 'number' && <Insight icon="md-barcode" value={insights.impressions} label="Impressions"/>}
       {typeof(insights.clicks) === 'number' && <Insight icon="md-barcode" value={insights.clicks} label="Clicks"/>}
-      {typeof(insights.impreswebsite_visitssions) === 'number' && <Insight value={insights.website_visits} label="Website Visits"/>}
+      {typeof(insights.website_visits) === 'number' && <Insight value={insights.website_visits} label="Website Visits"/>}
       {typeof(insights.nanos_score) === 'number'&& <Insight value={insights.nanos_score} label="Nanos Score"/>}
       {typeof(insights.cost_per_click) === 'number' && <Insight value={insights.cost_per_click} label="Cost per Click"/>}
       {typeof(insights.click_through_rate) === 'number'&& <Insight value={insights.click_through_rate} label="Click Through Rate"/>}
@@ -25,7 +28,13 @@ const SectionInsights = ({ insights, classes }) => {
 }
 
 SectionInsights.propTypes = {
+  /**
+   * The styling classes
+   */
   classes: PropTypes.object.isRequired,
+  /**
+   * The campaign's insights
+   */
   insights: PropTypes.object.isRequired
 }
 

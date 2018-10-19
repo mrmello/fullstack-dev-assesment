@@ -6,6 +6,10 @@ import Divider from '@material-ui/core/Divider'
 import { withStyles } from '@material-ui/core/styles'
 import styles from './SectionAudienceStyles'
 
+/**
+ * Section that presents information on the audience. It includes languages, genders, age, location,
+ * key words and interests
+ */
 const SectionAudience = ({ audience, classes }) => {
   return (
     <Paper className={classes.root} elevation={0} square>
@@ -22,7 +26,13 @@ const SectionAudience = ({ audience, classes }) => {
 }
 
 SectionAudience.propTypes = {
+  /**
+   * The styling classes
+   */
   classes: PropTypes.object.isRequired,
+  /**
+   * The audience to be presented
+   */
   audience: PropTypes.object.isRequired
 }
 

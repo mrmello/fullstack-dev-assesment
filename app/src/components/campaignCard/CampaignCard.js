@@ -13,6 +13,10 @@ import { selectCampaign } from '../../actions'
 import Ionicon from 'react-ionicons'
 import styles from './CampaignCardStyles'
 
+/**
+ * A complex type card presenting resumed data about a campaign. Includes the name, icons of the platforms
+ * the campaign is on, the campaign's goal and a graphic representation of the campaign's budget
+ */
 function CampaignCard(props) {
   function renderButtons(platforms){
     return Object.keys(platforms).map((p, i) => {
@@ -60,7 +64,13 @@ function CampaignCard(props) {
 }
 
 CampaignCard.propTypes = {
+  /**
+   * The styling classes
+   */
   classes: PropTypes.object.isRequired,
+  /**
+   * The campaign
+   */
   campaign: PropTypes.object
 }
 

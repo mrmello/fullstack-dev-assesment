@@ -10,6 +10,10 @@ import Tab from '@material-ui/core/Tab'
 import styles from './CampaignTabStyles'
 import CampaignStatusTabContainer from './tabContainer/TabContainer'
 
+/**
+ * Component responsivel for grouping and showing campaigns according to their status.
+ * Groups in "Delivering", "Ended", "Scheduled".
+ */
 class CampaignStatusTab extends React.Component {
   constructor() {
     super()
@@ -62,8 +66,17 @@ class CampaignStatusTab extends React.Component {
 }
 
 CampaignStatusTab.propTypes = {
+  /**
+   * The styling classes
+   */
   classes: PropTypes.object.isRequired,
+  /**
+   * Action creator to fetch all campaigns
+   */
   fetchCampaigns: PropTypes.func,
+  /**
+   * The campaigns to be shown in the tabs
+   */
   campaigns: PropTypes.array
 }
 

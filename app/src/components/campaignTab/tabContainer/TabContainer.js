@@ -5,6 +5,9 @@ import Paper from '@material-ui/core/Paper'
 import CampaignCard from '../../campaignCard/CampaignCard'
 import styles from './TabContainerStyles'
 
+/**
+ * A container tha holds the campaing cards
+ */
 function CampaignStatusTabContainer(props) {
   function renderCards() {
     const { data } = props
@@ -23,7 +26,13 @@ function CampaignStatusTabContainer(props) {
 }
 
 CampaignStatusTabContainer.propTypes = {
+  /**
+   * The styling classes
+   */
   classes: PropTypes.object.isRequired,
+  /**
+   * The object where the campaigns are stored
+   */
   data: PropTypes.any
 }
 

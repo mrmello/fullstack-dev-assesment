@@ -7,6 +7,10 @@ import { withStyles } from '@material-ui/core/styles'
 import Graph from '../../graph/Graph'
 import styles from './SectionStatusStyles'
 
+/**
+ * Section of the dashboard that presents a resume of the campaing. Including headline, start and end dates,
+ * status and a graphic informing the budget situation
+ */
 const SectionStatus = ({ campaign, classes }) => {
   return (
     <Paper className={classes.root} elevation={0} square>
@@ -20,7 +24,13 @@ const SectionStatus = ({ campaign, classes }) => {
 }
 
 SectionStatus.propTypes = {
+  /**
+   * The styling classes
+   */
   classes: PropTypes.object.isRequired,
+  /**
+   * The campaign to be shown its data
+   */
   campaign: PropTypes.object.isRequired
 }
 

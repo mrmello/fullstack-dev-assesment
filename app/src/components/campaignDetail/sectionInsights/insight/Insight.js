@@ -5,7 +5,10 @@ import { withStyles } from '@material-ui/core/styles'
 import Typography from '@material-ui/core/Typography'
 import styles from './InsightStyles'
 
-const Insight = ({ value, label = "Label", classes }) => {
+/**
+ * The single insigth component. It presents a label and a value for the respective insight
+ */
+const Insight = ({ value, label, classes }) => {
   return (
     <Paper className={classes.root} elevation={0} square>
       <Typography className={classes.description} gutterBottom>{label}</Typography>
@@ -15,9 +18,17 @@ const Insight = ({ value, label = "Label", classes }) => {
 }
 
 Insight.propTypes = {
+  /**
+   * The insight value
+   */
   value: PropTypes.number.isRequired,
-  icon: PropTypes.string,
-  label: PropTypes.string,
+  /**
+   * The insight label
+   */
+  label: PropTypes.string.isRequired,
+  /**
+   * The styling classes
+   */
   classes: PropTypes.object.isRequired
 }
 

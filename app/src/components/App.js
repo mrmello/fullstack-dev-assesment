@@ -7,6 +7,10 @@ import CampaignDetail from './campaignDetail/CampaignDetail'
 import Error from './error/Error'
 import theme from './Theme'
 
+/**
+ * The most parent component. Composed by the Header, CampaignTab and CampaignDetail
+ * routes and the error screen.
+ */
 class App extends Component {
   render() {
     return (

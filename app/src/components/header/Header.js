@@ -9,6 +9,9 @@ import HomeIcon from '@material-ui/icons/Home'
 import styles from './HeaderStyles'
 import { Link } from 'react-router-dom'
 
+/**
+ * The application header. Presents a link to the homeScreen as well as the app title
+ */
 function Header(props) {
   const { classes, title } = props
   return (
@@ -29,7 +32,13 @@ function Header(props) {
 }
 
 Header.propTypes = {
+  /**
+   * Styling classes.
+   */
   classes: PropTypes.object.isRequired,
+  /**
+   * Title to be presented
+   */
   title: PropTypes.string.isRequired,
 }
 

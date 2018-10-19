@@ -5,6 +5,9 @@ import { withStyles } from '@material-ui/core/styles'
 import Typography from '@material-ui/core/Typography'
 import styles from './GraphStyles'
 
+/**
+ * Graph component renders a svg graph circle for data visualization
+ */
 const Graph = ({ total, remaining, label, classes }) => {
   let progress = (100 - ((remaining * 100) / total)).toFixed(0)
   return (
@@ -25,9 +28,21 @@ const Graph = ({ total, remaining, label, classes }) => {
 }
 
 Graph.propTypes = {
+  /**
+   * The total amount
+   */
   total: PropTypes.number.isRequired,
+  /**
+   * The remaining amount
+   */
   remaining: PropTypes.number.isRequired,
+  /**
+   * The styling classes
+   */
   classes: PropTypes.object.isRequired,
+  /**
+   * A label fot the graph
+   */
   label: PropTypes.string
 }
 

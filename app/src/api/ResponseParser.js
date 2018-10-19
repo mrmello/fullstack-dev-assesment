@@ -1,8 +1,6 @@
 /**
  * Rejects the promise if the response is invalid.
- * Resolves for a weather object ready to be render and stored in
- * localStorage through a hashCode of three decimal case precision latitude
- * and longitude object. This object also contains the cache expiration time.
+ * Resolves for a object ready to be rendered
  */
 export function campaignsParser(response) {
   return new Promise((resolve, reject) => {
@@ -24,6 +22,10 @@ export function campaignsParser(response) {
   })
 }
 
+/**
+ * Rejects the promise if the response is invalid.
+ * Resolves for a object ready to be rendered
+ */
 export function campaignByIdParser(response) {
   return new Promise((resolve, reject) => {
     if(!response.data[0]) {

@@ -15,6 +15,9 @@ import SectionAudience from './sectionAudience/SectionAudience'
 import SectionInsights from './sectionInsights/SectionInsights'
 import styles from './CampaignDetailStyles'
 
+/**
+ * Component responsible for rendering the dashboard of a campaign's platform
+ */
 class CampaignDetail extends Component {
   constructor() {
     super()
@@ -24,6 +27,7 @@ class CampaignDetail extends Component {
   }
 
   componentDidMount() {
+    //in case the campaing is already on the store, it uses the cached campaign and does not fire a request
     if(!this.props.selectedCampaign) {
       this.props.fetchCampaignById(this.props.match.params.id)
     }
@@ -78,9 +82,21 @@ class CampaignDetail extends Component {
 }
 
 CampaignDetail.propTypes = {
+  /**
+   * The specific campaign to be shown
+   */
   selectedCampaign: PropTypes.object,
+  /**
+   * Action creator to fetch de campaing in case it was not already on the store
+   */
   fetchCampaignById: PropTypes.func,
+  /**
+   * The id parameter
+   */
   match: PropTypes.object,
+  /**
+   * The styling classes
+   */
   classes: PropTypes.object.isRequired
 }
 
