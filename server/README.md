@@ -1,20 +1,5 @@
-# Docker Node MongoDB Example
-
-> Simple example of a dockerized Node/Mongo app
-
-## Quick Start
-
-```bash
-# Run in Docker
-docker-compose up
-# use -d flag to run in background
-
-# Tear down
-docker-compose down
-
-# To be able to edit files, add volume to compose file
-volumes: ['./:/usr/src/app']
-
-# To re-build
-docker-compose build
-```
+Considerations
+----------
+### Assumptions
+ - It was assumed that the database should not persist. As mentioned in the task it could be prepopulated every time.
+ - The log's view for the api is not optimized as the ideal strategy is to use the ELK Stack. However I couldn't get it working in time on my only dev machine, I had problems causing the mongodb to run out of memory and going swap.

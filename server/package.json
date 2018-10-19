@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon index.js",
+    "start": "node index.js",
     "test": "cd db && docker build -t db_test . && docker run -d -p 27018:27017 db_test &&  mocha ../tests/**/*.test.js --exit && docker rm $(docker stop $(docker ps -a -q --filter ancestor=db_test --format='{{.ID}}'))"
   },
   "keywords": [],

@@ -1,3 +1,17 @@
+Considerations
+----------
+ 
+### React Folder Structure
+ - The React folder structuring pattern is based on the Components. In each component folder, when necessary, lays the necessary children components for the needs that given component. In this way, as the application grows, it is easier to find out wich component is used where and also avoids having inumerous "index.js" files
+
+### External Libraries
+
+ - `axios` Useful lib to make requests to remote APIs   
+ - `react-redux` Redux middleware  
+ - `redux` Redux Middleware   
+ - `redux-saga` A function generator middleware to the redux store   
+----------
+
 Components
 ----------
 
