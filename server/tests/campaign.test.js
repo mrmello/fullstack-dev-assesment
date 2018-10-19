@@ -24,7 +24,7 @@ describe('Tests', function() {
   it('does not break on unexistent campaign', function(done) {
     request.get('/campaigns/1999999')
       .end((err, res) => {
-        expect(res.status).to.be.equals(200)
+        expect(res.status).to.be.equals(400)
         done()
       })
   })
