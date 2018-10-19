@@ -3,7 +3,6 @@ FROM node:10.2.1
 WORKDIR /usr/src/app
 
 COPY package*.json ./
-RUN yarn config set strict-ssl false
 RUN yarn install
 
 COPY . .
