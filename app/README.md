@@ -1,15 +1,29 @@
-Considerations
+Front end
 ----------
  
 ### React Folder Structure
  - The React folder structuring pattern is based on the Components. In each component folder, when necessary, lays the necessary children components for the needs that given component. In this way, as the application grows, it is easier to find out wich component is used where and also avoids having inumerous "index.js" files
 
 ### External Libraries
+The React was created with the create-react-app starter. As it is a complete, helpful and handy starter.
 
+ - `@material-ui/core` Material UI   
+ - `@material-ui/icons` Material UI - icons
+ - `react-circle` To draw svg graphs   
+ - `react-ionicons` Icons set  
+ - `react-router` Router   
+ - `react-router-dom` Router  
  - `axios` Useful lib to make requests to remote APIs   
  - `react-redux` Redux middleware  
  - `redux` Redux Middleware   
- - `redux-saga` A function generator middleware to the redux store   
+ - `redux-saga` A function generator middleware to the redux store  
+ - `typeface-roboto` Material UI - Font  
+ 
+ devDependencies
+ - `eslint` linting   
+ - `eslint-plugin-react` linting   
+ - `react-doc-generator` Docs generator helper  
+ 
 ----------
 
 Components
